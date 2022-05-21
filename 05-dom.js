@@ -17,3 +17,5 @@ resetBtn.addEventListener('click', function () {
   total = 0;
   outputEl.textContent = total;
 });
+
+// console.dir(btnAdd.textContent);
