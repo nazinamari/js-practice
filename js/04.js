@@ -7,7 +7,7 @@ const Marina = function ({ mood, appearance, action } = {}) {
     this.action = action;
 };
 
-Marina.prototype.beHappy = function (eat) {
+Marina.prototype.supply = function (eat) {
     if (eat === 'shaverma') {
         return this.mood = 'happy',
             this.appearance = 'smiling',
@@ -30,7 +30,7 @@ const myMarina = new Marina({
     action: 'dull'});
 // console.log(myMarina);
 
-myMarina.beHappy('shaverma');
+myMarina.supply('shaverma');
 console.log(myMarina);
 
 myMarina.studying('goIt');
