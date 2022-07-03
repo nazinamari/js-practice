@@ -55,6 +55,8 @@ Car.prototype.changePrice = function (newPrice) {
 
 // myCar3.sayHi();
 
+
+
 const User = function ({ email, password } = {}) {
   this.email = email;
   this.password = password;
