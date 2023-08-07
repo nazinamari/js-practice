@@ -70,4 +70,4 @@ function removeActiveCardClass() {
 }
 
 function addActiveCardClass(card) {
-  card.class
+  card.class}
