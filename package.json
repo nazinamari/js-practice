@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "devDependencies": {
+    "parcel": "^2.9.3",
+    "parcel-plugin-handlebars-precompile": "^1.0.2"
+  },
+  "dependencies": {
+    "lodash.throttle": "^4.1.1",
+    "parcel-bundler": "^1.12.5",
+    "throttle": "^1.0.3"
+  }
+}
