@@ -34,18 +34,18 @@ function onFormSubmit(evt) {
 
 function onTextareaInput(evt) {
     // const value = evt.currentTarget.value;
-    const message = JSON.stringify(formData);
+    const form = JSON.stringify(formData);
     
-    localStorage.setItem(STORAGE_KEY, message);
+    localStorage.setItem(STORAGE_KEY, form);
 }
 
 function populateTextarea() {
-    const savedMessage = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    const savedForm = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
-    if (savedMessage) {
+    if (savedForm) {
     
-        refs.textarea.value = savedMessage.message;
-        refs.input.value = savedMessage.name;
+        refs.textarea.value = savedForm.message;
+        refs.input.value = savedForm.name;
         
     }
 }
