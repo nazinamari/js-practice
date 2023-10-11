@@ -43,20 +43,11 @@ function populateTextarea() {
     const savedForm = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
     if (savedForm) {
-    
         refs.textarea.value = savedForm.message;
         refs.input.value = savedForm.name;
         
     }
 }
-
-
-
-
-
-
-
-
 
 
 
