@@ -4,11 +4,12 @@ import '../css/feedback-form.css';
 
 const STORAGE_KEY = 'feedback-msg';
 
-// const formData = {};
+const formData = {};
 
 const refs = {
     form: document.querySelector('.js-feedback-form'),
     textarea: document.querySelector('.js-feedback-form textarea'),
+    input: document.querySelector('.js-feedback-form input')
 };
 
 refs.form.addEventListener('submit', onFormSubmit);
@@ -19,7 +20,7 @@ refs.form.addEventListener('input', e => {
     // console.log(e.target.value);
 
     formData[e.target.name] = e.target.value;
-    console.log(formData);
+    // console.log(formData);
 });
 
 populateTextarea();
@@ -29,20 +30,22 @@ function onFormSubmit(evt) {
 
     evt.currentTarget.reset();
     localStorage.removeItem(STORAGE_KEY);
-}с
+}
 
 function onTextareaInput(evt) {
-    const message = evt.target.value;
-
+    // const value = evt.currentTarget.value;
+    const message = JSON.stringify(formData);
+    
     localStorage.setItem(STORAGE_KEY, message);
 }
 
 function populateTextarea() {
-    const savedMessage = localStorage.getItem(STORAGE_KEY);
+    const savedMessage = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
     if (savedMessage) {
-        console.log(savedMessage);
-        refs.textarea.value = savedMessage;
+    
+        refs.textarea.value = savedMessage.message;
+        refs.input.value = savedMessage.name;
         
     }
 }
