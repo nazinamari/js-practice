@@ -7,6 +7,17 @@
     "dev": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /08-3-шаблонизация-и-localstorage/"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nazinamari/js-practice.git"
+  },
+  "keywords": [],
+  "author": "Nazina Maryna <nzyame@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nazinamari/js-practice/issues"
+  },
+  "homepage": "https://github.com/nazinamari/js-practice#readme",
   "devDependencies": {
     "parcel": "^2.9.3",
     "parcel-plugin-handlebars-precompile": "^1.0.2"
