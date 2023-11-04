@@ -1,51 +1,28 @@
-// import '../css/common.css';
-// import BSN from 'bootstrap.native';
-
-// const modal = new BSN.Modal('#subscription-modal');
-// const subscribeBtn = document.querySelector('button[data-subscribe]');
-
-// const PROMPT_DELAY = 1000;
-// const MAX_PROMPT_ATTEMPTS = 3;
-
-// let promptCounter = 0;
-// let hasSubscribed = false;
-
-// const intervalId = setInterval(() => {
-//     if(promptCounter === MAX_PROMPT_ATTEMPTS || hasSubscribed) {
-//         console.log("Нужно сотановить интервал");
-//         clearInterval(intervalId);
-//         return;
-//     }
-
-//     console.log('Подпишись на рассылку - ' + Date.now() );
-//     promptCounter += 1;
-// }, PROMPT_DELAY);
-
-// const modal = new BSN.Modal('#subscription-modal');
-
-
-// console.log(modal);
-// modal.show();
-
 import '../css/common.css';
-import "bootstrap.native"
-// import BSN from 'bootstrap.native';
-BSN = require("bootstrap.native")
+import "bootstrap.native";
+BSN = require("bootstrap.native");
+
+const modal = new BSN.Modal('#subscription-modal');
+
+const PROMPT_DELAY = 1000;
+const MAX_PROMPT_ATTEMPTS = 3;
+let promptCounter = 0; 
+let hasSubscribed = false; 
 
 const refs = {
   modal: document.querySelector('#subscription-modal'),
   subscribeBtn: document.querySelector('button[data-subscribe]'),
-};
-const PROMPT_DELAY = 3000;
-const MAX_PROMPT_ATTEMPTS = 3;
-let promptCounter = 0;
-let hasSubscribed = false;
-const modal = new BSN.Modal('#subscription-modal');
+  closeBtn: document.querySelector('button[data-dismiss]'),
+  };
 
-openModal();
+  openModal();
 
-refs.modal.addEventListener('hide.bs.modal', openModal);
-refs.subscribeBtn.addEventListener('click', onSubscribeBtnClick);
+refs.closeBtn.addEventListener('click' , () => {
+  modal.hide();
+  openModal();
+});
+
+refs.subscribeBtn.addEventListener('click', onSubscribeBtnClick)
 
 function openModal() {
   if (promptCounter === MAX_PROMPT_ATTEMPTS || hasSubscribed) {
@@ -60,7 +37,16 @@ function openModal() {
   }, PROMPT_DELAY);
 }
 
-function onSubscribeBtnClick() {
+function onSubscribeBtnClick () {
   hasSubscribed = true;
+  console.log('Максимальное кол-во надоеданий или подписался');
   modal.hide();
 }
+
+
+
+
+
+
+
+
