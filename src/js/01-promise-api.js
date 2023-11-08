@@ -18,19 +18,47 @@ const promise = new Promise((resolve, reject) => {
     }, 2000)
 });
 
+// promise.then(onFullfilled, onRejected)
+
+function onFullfilled (result) {
+    console.log('onFulfilled -> onFulfilled');
+    console.log(`✅ ${result}`);
+}
+
+function onRejected (error) {
+    console.log('onRejected -> onRejected');
+    console.log(`❌ ${error}`);
+}
+
 // console.log(promise);
 
-promise.then(
-    result => {
-        console.log('onFulfilled -> onFulfilled');
-        console.log(`✅ ${result}`);
-}, 
-    error => {
-        console.log('onRejected -> onRejected');
-        console.log(`❌ ${error}`);
-    },
-);
-
-
+// promise.then(
+//     result => {
+//         console.log('onFulfilled -> onFulfilled');
+//         console.log(`✅ ${result}`);
+// }, 
+//     error => {
+//         console.log('onRejected -> onRejected');
+//         console.log(`❌ ${error}`);
+//     },
+// );
 
 // then(onSuccess, onError)
+
+/*
+ * Цепочки промисов (chaining)
+ * Promise.prototype.catch(error)
+ * Promise.prototype.finally()
+ */
+
+promise.then(result => {
+    console.log(result);
+
+    return 5
+}).then(x => {
+    console.log(x);
+
+    return 3
+}).then(y => {
+    console.log(y);
+}).catcpromise
