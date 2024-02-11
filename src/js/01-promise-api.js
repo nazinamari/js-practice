@@ -7,43 +7,42 @@
  */
 
 const promise = new Promise((resolve, reject) => {
-    const canFullfill = Math.random() > 0.5;
+    const canFulfill = Math.random() > 0.5;
 
     setTimeout(() => {
-    if(canFullfill) {
-        resolve('Промис выполнился успешно, с результатом (исполнен, fulfilled)')
-    }
-
-    reject('Промис выполнился с ошибкой (отклонён, rejected)')
-    }, 2000)
+        if(canFulfill) {
+            resolve('Промис выполнился');
+        }
+    
+        reject('Промис ошибка');
+    }, 2000);
 });
 
-// promise.then(onFullfilled, onRejected)
+console.log(promise);
 
-function onFullfilled (result) {
-    console.log('onFulfilled -> onFulfilled');
-    console.log(`✅ ${result}`);
-}
+// promise.then(result => {
+//     console.log(result);
+// });
 
-function onRejected (error) {
-    console.log('onRejected -> onRejected');
-    console.log(`❌ ${error}`);
-}
-
-// console.log(promise);
+// then(onSuccess, onError)
 
 // promise.then(
 //     result => {
-//         console.log('onFulfilled -> onFulfilled');
 //         console.log(`✅ ${result}`);
-// }, 
+//     },
 //     error => {
-//         console.log('onRejected -> onRejected');
-//         console.log(`❌ ${error}`);
+//         console.log(`❌ ${error}`); 
 //     },
 // );
+promise.then(onFulfilled, onRejected);
 
-// then(onSuccess, onError)
+function onFulfilled (result) {
+    console.log(`✅ ${result}`);
+};
+
+function onRejected (error) {
+    console.log(`❌ ${error}`);
+};
 
 /*
  * Цепочки промисов (chaining)
@@ -51,14 +50,15 @@ function onRejected (error) {
  * Promise.prototype.finally()
  */
 
-promise.then(result => {
-    console.log(result);
-
-    return 5
-}).then(x => {
+promise
+.then(onFulfilled)
+.then(x => {
     console.log(x);
 
-    return 3
-}).then(y => {
+    return 10;
+})
+.then(y => {
     console.log(y);
-}).catcpromise
+})
+.catch(error => console.log(error))
+.finally(() => console.log('я буду выполнен в любом случае'));
